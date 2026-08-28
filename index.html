@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pago Rápido - Abarrotes Los Sandovales</title>
+
+
+<style>
+
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    text-align: center;
+
+    background-image: url("fondo.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+}
+
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+========================================= */
+
+.contenedor {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    padding: 30px 25px;
+
+    background: rgba(255, 255, 255, 0.90);
+
+    border-radius: 25px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.20);
+
+}
+
+
+/* =========================================
+   TITULO
+========================================= */
+
+h1 {
+
+    margin-top: 0;
+
+    margin-bottom: 10px;
+
+    font-size: 30px;
+
+}
+
+
+h2 {
+
+    margin-top: 5px;
+
+    font-size: 22px;
+
+}
+
+
+/* =========================================
+   TEXTO
+========================================= */
+
+p {
+
+    font-size: 17px;
+
+}
+
+
+/* =========================================
+   CLABE
+========================================= */
+
+#caja {
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    background: white;
+
+    padding: 18px 10px;
+
+    border: 2px dashed #333;
+
+    border-radius: 12px;
+
+    margin: 20px 0;
+
+    word-break: break-all;
+
+}
+
+
+/* =========================================
+   MENSAJE
+========================================= */
+
+#aviso {
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    min-height: 42px;
+
+}
+
+
+/* =========================================
+   BOTÓN
+========================================= */
+
+button {
+
+    width: 100%;
+
+    padding: 16px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    background: #222;
+
+    color: white;
+
+}
+
+
+button:hover {
+
+    transform: scale(1.02);
+
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    body {
+
+        padding: 15px;
+
+    }
+
+
+    .contenedor {
+
+        width: 100%;
+
+        padding: 25px 20px;
+
+        border-radius: 20px;
+
+    }
+
+
+    h1 {
+
+        font-size: 26px;
+
+    }
+
+
+    h2 {
+
+        font-size: 19px;
+
+    }
+
+
+    #caja {
+
+        font-size: 17px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="contenedor">
+
+
+    <h1>
+        Abarrotes Los Sandovales
+    </h1>
+
+
+    <h2>
+        ¡Pago por transferencia!
+    </h2>
+
+
+    <p>
+        CLABE interbancaria:
+    </p>
+
+
+    <div id="caja">
+        722969069659144175
+    </div>
+
+
+    <p id="aviso">
+        Abre tu app de banco y dale a PEGAR
+    </p>
+
+
+    <button onclick="copiar()">
+        COPIAR CLABE
+    </button>
+
+
+</div>
+
+
+
+<script>
+
+/* =========================================
+   CLABE
+========================================= */
+
+const MI_CLABE = "722969069659144175";
+
+
+/* =========================================
+   FUNCIÓN COPIAR
+========================================= */
+
+function copiar() {
+
+    navigator.clipboard.writeText(MI_CLABE)
+
+    .then(function() {
+
+        document.getElementById("aviso").innerHTML =
+
+        "✅ ¡CLABE COPIADA! Ya puedes pegarla en tu app bancaria.";
+
+    })
+
+    .catch(function() {
+
+        document.getElementById("aviso").innerHTML =
+
+        "⚠️ No se pudo copiar automáticamente. Mantén presionada la CLABE para copiarla.";
+
+    });
+
+}
+
+</script>
+
+
+</body>
+
+</html>
